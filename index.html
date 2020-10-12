@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Game</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="assets/js/script.js" type="text/javascript"></script>
-    <script
-			  src="https://code.jquery.com/jquery-3.5.1.js"
-			  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-			  crossorigin="anonymous"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Memory Game</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="assets/js/script.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    
+	<header>
+		<div id="title">
+			<h2>Game title</h2>
+			<h4>Created by LGaming</h4>
+			<!--'L' for Long(my name) + 'Gaming'-->
+		</div>
+	</header>
+	<section id="homepage">
+		<!--Homepage where user can click 'Start' to begin the game-->
+		<div>
+			<img src="" alt="">
+		</div>
+			<button id="start-button"></button><!--Go to menupage-->
+	</section>
+	<section id="menupage">
+		<!--Menupage where user can decide to play the game or to change setting or to see credit -->
+		<div class="menu-buttons">
+			<button id="play"></button><!--Go the the game.html-->
+			<button id="settings"></button>
+			<button id="about"></button><!--About game developer-->
+		</div>
+	</section>
+	<footer>
+		<!--Link to some social networks-->
+         <ul class="social-networks">
+            <li>
+               <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li>
+               <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            </li>
+            <li>
+               <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            </li>
+            <li>
+               <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+         </ul>
+	</footer>
 </body>
+
 </html>
