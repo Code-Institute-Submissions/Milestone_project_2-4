@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="assets/css/gamestyle.css" />
     <title>Game</title>
   </head>
   <body>
     <header>
       <h2>Game tilte</h2>
-      <div class="menu">
+    </header>
+
+    <section id="game-container">
+      <div class="game-menu">
         <ul>
           <li>Setting</li>
           <li>Exit</li>
@@ -17,62 +21,36 @@
           <li>Restart</li>
         </ul>
       </div>
-      <div class="score">
-        <ul>
-          <li>Score</li>
-          <li>Time</li>
-        </ul>
+      <div class="game-info">
+        <p>Score</p>
+        <p>Time</p>
       </div>
-    </header>
-    <section id="mode-normal">
-      <div class="cards">
-        <!--GAME MODE NORMAL: 12 items-->
-        <div class="item1"></div>
-        <div class="item2"></div>
-        <div class="item3"></div>
-        <div class="item4"></div>
-        <div class="item5"></div>
-        <div class="item6"></div>
-        <div class="item7"></div>
-        <div class="item8"></div>
-        <div class="item9"></div>
-        <div class="item10"></div>
-        <div class="item11"></div>
-        <div class="item12"></div>
-      </div>
-    </section>
-    <section id="mode-hard">
-      <!--GAME MODE HARD: 24 items-->
-      <div class="cards">
-        <div class="item1"></div>
-        <div class="item2"></div>
-        <div class="item3"></div>
-        <div class="item4"></div>
-        <div class="item5"></div>
-        <div class="item6"></div>
-        <div class="item7"></div>
-        <div class="item8"></div>
-        <div class="item9"></div>
-        <div class="item10"></div>
-        <div class="item11"></div>
-        <div class="item12"></div>
-        <div class="item13"></div>
-        <div class="item14"></div>
-        <div class="item15"></div>
-        <div class="item16"></div>
-        <div class="item17"></div>
-        <div class="item18"></div>
-        <div class="item19"></div>
-        <div class="item20"></div>
-        <div class="item21"></div>
-        <div class="item22"></div>
-        <div class="item23"></div>
-        <div class="item24"></div>
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-front">
+            <img src="assets/images/flags/vietnam.png" alt="Vietnam Flag" />
+          </div>
+          <div class="card-back">
+            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
+          </div>
+        </div>
+        <div class="card">2</div>
+        <div class="card">3</div>
+        <div class="card">4</div>
+        <div class="card">5</div>
+        <div class="card">6</div>
+        <div class="card">7</div>
+        <div class="card">8</div>
+        <div class="card">9</div>
+        <div class="card">10</div>
+        <div class="card">11</div>
+        <div class="card">12</div>
       </div>
     </section>
+
     <footer>
       <div class="report">
-        <a href="">Report a bug</a>
+        <a href="">Report</a>
       </div>
     </footer>
   </body>
