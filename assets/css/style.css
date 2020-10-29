@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-image: url("earthflags.jpg") 100%;
+  background: url("earthflags.jpg") cover;
   background-color: lightblue;
 }
 

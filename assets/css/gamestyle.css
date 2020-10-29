@@ -1,7 +1,6 @@
 body {
-  height: 100vh; /*The game displays according to the screen size*/
+  /*height: 100vh; /*The game displays according to the screen size*/
   background-color: lightcyan;
-  overflow: hidden;
 }
 
 h2{
