@@ -1,6 +1,66 @@
 body {
-  margin: 0;
-  background: url("earthflags.jpg") cover;
-  background-color: lightblue;
+  /*height: 100vh; /*The game displays according to the screen size*/
+  background-color: lightcyan;
 }
 
+h2{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#game-container {
+  margin: 0;
+}
+
+.cards-container {
+  display: grid;
+  /*4 cards per line for Desktop and Tablet*/
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 20px 40px;
+  margin: 20px;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: repeat(2, auto);
+      grid-gap: 15px 20px;
+      margin: 5px;
+  }
+}
+
+/*Cards style*/
+.card {
+  position: relative;
+  height: 150px;
+  width: 235px;
+  border: 2px solid orange;     
+}
+
+@media (max-width: 1200px) {
+  .card {
+    height: 120px;
+    width: 195px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    height: 85px;
+    width: 140px;
+  }
+}
+
+.card-back img,
+.card-front img {
+  position: absolute; /*2 images are situated in the same position*/
+  width: 100%;
+  height: 100%;
+  /*Image dimention takes the same value as its container*/
+}
