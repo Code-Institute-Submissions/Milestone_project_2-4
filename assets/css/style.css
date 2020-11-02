@@ -10,6 +10,7 @@ h2{
 
 #game-container {
   margin: 0;
+  perspective: 1000px;
 }
 
 .cards-container {
@@ -19,6 +20,8 @@ h2{
   grid-gap: 20px 40px;
   margin: 20px;
   justify-content: center;
+  transform-style: preserve-3d;
+  transition: .5s;
 }
 
 @media (max-width: 1200px) {
