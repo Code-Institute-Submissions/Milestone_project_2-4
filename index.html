@@ -1,133 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <title>Memory Game</title>
-  </head>
-  <body>
-    <header>
-	<h2>Memory Game</h2>
-	</header>
-    <section id="game-container">
-      <div class="game-menu">
-        <ul>
-          <li>Start</li>
-          <li>Restart</li>
-          <li>Music: <span class="music-status"> ON </span></li>
-        </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <title>Memory Game</title>
+</head>
+<body>
+  <header>
+    <h2>Memory Game</h2>
+  </header>
+  <section id="game-container">
+    <div class="game-menu">
+      <ul>
+        <li>Start</li>
+        <li>Restart</li>
+        <li>Music: <span class="music-status"> ON </span></li>
+      </ul>
+    </div>
+    <div class="game-info">
+      <p>Score :<span class="score"> 0 </span></p>
+      <p>Time :<span class="time"> 45 </span></p>
+    </div>
+    <div class="cards-container">
+      <div class="card">
+        <img class="card-front" src="assets/images/flags/vietnam.png" alt="Vietnam Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
       </div>
-      <div class="game-info">
-        <p>Score :<span class="score"> 0 </span></p>
-        <p>Time :<span class="time"> 45 </span></p>
+      <div class="card">
+        <img class="card-front" src="assets/images/flags/vietnam.png" alt="Vietnam Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
       </div>
-      <div class="cards-container">
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/vietnam.png" alt="Vietnam Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/vietnam.png" alt="Vietnam Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/japan.png" alt="Japan Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/japan.png" alt="Japan Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/france.png" alt="France Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/france.png" alt="France Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/germany.png" alt="Germany Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/germany.png" alt="Germany Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/ireland.png" alt="Ireland Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/ireland.png" alt="Ireland Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/brazil.png" alt="Brazil Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-front">
-            <img src="assets/images/flags/brazil.png" alt="Brazil Flag" />
-          </div>
-          <div class="card-back">
-            <img src="assets/images/backcard.jpg" alt="Nation Flag" />
-          </div>
-        </div>
+      <div class="card">
+        <img class="card-front" src="assets/images/flags/japan.png" alt="Japan Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
       </div>
-    </section>
-
-    <footer>
-      <div class="report">
-        <a href="">Report</a>
+      <div class="card">
+        <img class="card-front" src="assets/images/flags/japan.png" alt="Japan Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
       </div>
-    </footer>
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-	<script src="assets/js/script.js" type="text/javascript"></script>
-  </body>
+      <div class="card">
+        <img class="card-front" src="assets/images/flags/france.png" alt="France Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
+      </div>
+      <div class="card">          
+        <img class="card-front" src="assets/images/flags/france.png" alt="France Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
+      </div>
+      <div class="card">          
+        <img class="card-front" src="assets/images/flags/germany.png" alt="Germany Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
+      </div>
+      <div class="card">          
+        <img class="card-front" src="assets/images/flags/germany.png" alt="Germany Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
+      </div>
+      <div class="card">          
+        <img class="card-front" src="assets/images/flags/ireland.png" alt="Ireland Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
+      </div>
+      <div class="card">
+        <img class="card-front" src="assets/images/flags/ireland.png" alt="Ireland Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
+      </div>
+      <div class="card">
+        <img class="card-front" src="assets/images/flags/brazil.png" alt="Brazil Flag" />
+        
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
+      </div>
+      <div class="card">
+        <img class="card-front" src="assets/images/flags/brazil.png" alt="Brazil Flag" />
+        <img class="card-back" src="assets/images/backcard.jpg" alt="Nation Flag" />
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="report">
+      <a href="">Report</a>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="assets/js/script.js" type="text/javascript"></script>
+</body>
 </html>
