@@ -1,17 +1,10 @@
-const cards = document.querySelectorAll('.card') /*create a storage "cards" which contains of all our card*/
-
-$(document).ready(function () {
+$(document).ready(function () { //Run this script only when the document have finished loading
   $(".card").on("click", function () {
-    console.log("I was clicked");
-    console.log(this);
+    this.classList.toggle("flip");
+    console.log('I was clicked')
+    console.log(this)
   });
 });
-
-/*The each() method specifies a function to run for each matched element */
-$("cards").each(function(){
-
-});
-cards.forEach((card) => card.addEventListener("click", flipCard));
 
 /* Ready function
 function ready() {
@@ -35,8 +28,6 @@ function ready() {
     });
 }
 */
-
-//Run this script only when the html and css are finished loading
 
 /*
 if (document.readyState === "loading") {
