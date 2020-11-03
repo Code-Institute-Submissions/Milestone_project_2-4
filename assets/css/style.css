@@ -45,6 +45,7 @@ h2 {
   border: 2px solid black;
   box-shadow: 15px 2px 20px rgba(0, 0, 0, 0.5);
   transform-style: preserve-3d;
+  transition: transform 0.5s;
 }
 
 @media (max-width: 1200px) {
