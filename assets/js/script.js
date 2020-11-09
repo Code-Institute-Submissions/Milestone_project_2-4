@@ -1,3 +1,4 @@
+let cardArray = [];
 let cardFlipped = false;
 let firstPick, secondPick;
 let lockBoard = false; //you can only interact when lockBoard is false---fix bug
@@ -7,6 +8,7 @@ $(document).ready(function () {
   $(".card").on("click", function () {
     if (lockBoard === false) {
       if (this === firstPick) {
+        //user can not click the same card again
         return;
       } else {
         $(this).addClass("flip");
@@ -41,7 +43,12 @@ $(document).ready(function () {
         }, 1000);
       }
     }
-
     console.log(cardFlipped, firstPick);
   });
 });
+let randomPosition = Math.floor(Math.random() * 12);
+for (i = 0; i < 12; i++) {
+  $(".card").data("position", randomPosition);
+
+  console.log(randomPosition);
+}
