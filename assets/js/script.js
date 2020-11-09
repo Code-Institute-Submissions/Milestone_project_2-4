@@ -6,13 +6,17 @@ $(document).ready(function () {
   //Run this script only when the document have finished loading
   $(".card").on("click", function () {
     if (lockBoard === false) {
-      $(this).addClass("flip");
+      if (this === firstPick) {
+        return;
+      } else {
+        $(this).addClass("flip");
+      }
     } else {
       return;
     }
 
+    //check if this is first click
     if (cardFlipped === false) {
-      //check if this is first click
       cardFlipped = true;
       firstPick = this;
     } else {
