@@ -1,7 +1,21 @@
-let cardArray = [];
+let cardArray = []; // empty array to contain cards
 let cardFlipped = false;
 let firstPick, secondPick;
 let lockBoard = false; //you can only interact when lockBoard is false---fix bug
+
+// Add cards to our array
+$(".card").each(function () {
+  cardArray.push(this);
+});
+
+//Shuffle cards
+for (let i = cardArray.length - 1; i > 0; i--) {
+  let randomPosition = Math.floor(Math.random() * 12);
+  cardArray[randomPosition].style.order = i;
+  cardArray[i].style.order = randomPosition;
+}
+
+console.log(cardArray);
 
 $(document).ready(function () {
   //Run this script only when the document have finished loading
@@ -46,9 +60,3 @@ $(document).ready(function () {
     console.log(cardFlipped, firstPick);
   });
 });
-let randomPosition = Math.floor(Math.random() * 12);
-for (i = 0; i < 12; i++) {
-  $(".card").data("position", randomPosition);
-
-  console.log(randomPosition);
-}
