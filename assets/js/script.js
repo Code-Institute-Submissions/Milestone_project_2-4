@@ -1,3 +1,44 @@
+class AudioController {
+  constructor() {
+    this.gameMusic = new Audio("assets/audio/gamesound.mp3");
+    this.startGameSound = new Audio("assets/audio/gamestart.wav");
+    this.flipSound = new Audio("assets/audio/flip.wav");
+    this.matchSound = new Audio("assets/audio/correctpick.wav");
+    this.victorySound = new Audio("assets/audio/victory.wav");
+    this.gameOverSound = new Audio("assets/audio/gameover.wav");
+    this.timeSound = new Audio("assets/audio/ticktock.wav");
+    this.gameMusic.volume = 0.5;
+    this.gameMusic.loop = true;
+  }
+  startMusic() {
+    this.gameMusic.play();
+  }
+  startSound() {
+    this.startGameSound.play();
+  }
+  stopMusic() {
+    this.gameMusic.pause();
+    this.gameMusic.currentTime = 0;
+  }
+  flip() {
+    this.flipSound.play();
+  }
+  match() {
+    this.matchSound.play();
+  }
+  victory() {
+    this.stopMusic();
+    this.victorySound.play();
+  }
+  timeAboutToEnd() {
+    this.timeSound.play();
+  }
+  gameOver() {
+    this.stopMusic();
+    this.gameOverSound.play();
+  }
+}
+
 let cardArray = []; // empty array to contain cards
 let cardFlipped = false;
 let firstPick, secondPick;
@@ -18,6 +59,8 @@ for (let i = cardArray.length - 1; i > 0; i--) {
 console.log(cardArray);
 
 $(document).ready(function () {
+  let myMusic = new AudioController();
+  myMusic.startMusic();
   //Run this script only when the document have finished loading
   $(".card").on("click", function () {
     if (lockBoard === false) {
