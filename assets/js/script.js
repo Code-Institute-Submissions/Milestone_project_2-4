@@ -3,15 +3,17 @@ class AudioController {
     this.gameMusic = new Audio("assets/audio/gamesound.mp3");
     this.startGameSound = new Audio("assets/audio/gamestart.wav");
     this.flipSound = new Audio("assets/audio/flip.wav");
-    this.matchSound = new Audio("assets/audio/correctpick.wav");
+    this.correctSound = new Audio("assets/audio/correctpick.wav");
+    this.wrongSound = new Audio("assets/audio/wrongpick.wav");
     this.victorySound = new Audio("assets/audio/victory.wav");
     this.gameOverSound = new Audio("assets/audio/gameover.wav");
     this.timeSound = new Audio("assets/audio/ticktock.wav");
     this.gameMusic.volume = 0.5;
+    this.wrongSound.volume = 0.2; // this sound is quite loud
     this.gameMusic.loop = true;
   }
   startMusic() {
-    this.gameMusic.play();
+    setTimeout(this.gameMusic.play(),2000);
   }
   startSound() {
     this.startGameSound.play();
@@ -23,8 +25,11 @@ class AudioController {
   flip() {
     this.flipSound.play();
   }
-  match() {
-    this.matchSound.play();
+  correct() {
+    this.correctSound.play();
+  }
+  wrong() {
+    this.wrongSound.play();
   }
   victory() {
     this.stopMusic();
@@ -78,28 +83,32 @@ $(document).ready(function () {
     if (cardFlipped === false) {
       cardFlipped = true;
       firstPick = this;
+      myMusic.flip();
     } else {
       //if not second click
       cardFlipped = false;
       secondPick = this;
+      myMusic.flip();
       //Check for match
       if (firstPick.dataset.flag_name === secondPick.dataset.flag_name) {
         // for matched case we will disable the click method so the user can not click on the same card
         $(firstPick).off("click");
         $(secondPick).off("click");
+        myMusic.correct();
       } else {
         // if it's not match
         lockBoard = true;
         setTimeout(function () {
           //setTimeout method allow user to see the second pick by adding more time before calling the function
           //without this method the game flip the second pick card very fast that the user aren't able to see his second pick
+          myMusic.wrong();
           $(firstPick).removeClass("flip");
           $(secondPick).removeClass("flip");
+
           //the front card will flip to the back card when we remove the flip class
           lockBoard = false;
         }, 1000);
       }
     }
-    console.log(cardFlipped, firstPick);
   });
 });
