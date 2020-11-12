@@ -1,6 +1,13 @@
+let cardArray = []; // empty array to contain cards
+let cardFlipped = false;
+let firstPick, secondPick;
+let lockBoard = false; //you can only interact when lockBoard is false---fix bug
+
 class AudioController {
   constructor() {
+    /*Background Music */
     this.gameMusic = new Audio("assets/audio/gamesound.mp3");
+    /*Other Sounds*/
     this.startGameSound = new Audio("assets/audio/gamestart.wav");
     this.flipSound = new Audio("assets/audio/flip.wav");
     this.correctSound = new Audio("assets/audio/correctpick.wav");
@@ -13,7 +20,7 @@ class AudioController {
     this.gameMusic.loop = true;
   }
   startMusic() {
-    setTimeout(this.gameMusic.play(),2000);
+    this.gameMusic.play();
   }
   startSound() {
     this.startGameSound.play();
@@ -44,28 +51,21 @@ class AudioController {
   }
 }
 
-let cardArray = []; // empty array to contain cards
-let cardFlipped = false;
-let firstPick, secondPick;
-let lockBoard = false; //you can only interact when lockBoard is false---fix bug
-
-// Add cards to our array
-$(".card").each(function () {
-  cardArray.push(this);
-});
-
-//Shuffle cards
-for (let i = cardArray.length - 1; i > 0; i--) {
-  let randomPosition = Math.floor(Math.random() * 12);
-  cardArray[randomPosition].style.order = i;
-  cardArray[i].style.order = randomPosition;
+function addCard() {
+  $(".card").each(function () {
+    cardArray.push(this);
+  });
 }
 
-console.log(cardArray);
+function shuffleCards() {
+  for (let i = cardArray.length - 1; i > 0; i--) {
+    let randomPosition = Math.floor(Math.random() * 12);
+    cardArray[randomPosition].style.order = i;
+    cardArray[i].style.order = randomPosition;
+  }
+}
 
 $(document).ready(function () {
-  let myMusic = new AudioController();
-  myMusic.startMusic();
   //Run this script only when the document have finished loading
   $(".card").on("click", function () {
     if (lockBoard === false) {
