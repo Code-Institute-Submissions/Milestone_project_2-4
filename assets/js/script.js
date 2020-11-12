@@ -1,13 +1,12 @@
-let cardArray = []; // empty array to contain cards
+let cards = []; // empty array to contain cards
 let cardFlipped = false;
 let firstPick, secondPick;
 let lockBoard = false; //you can only interact when lockBoard is false---fix bug
+var totalTime = 45;
 
 class AudioController {
   constructor() {
-    /*Background Music */
     this.gameMusic = new Audio("assets/audio/gamesound.mp3");
-    /*Other Sounds*/
     this.startGameSound = new Audio("assets/audio/gamestart.wav");
     this.flipSound = new Audio("assets/audio/flip.wav");
     this.correctSound = new Audio("assets/audio/correctpick.wav");
@@ -51,18 +50,41 @@ class AudioController {
   }
 }
 
-function addCard() {
+function addCards() {
   $(".card").each(function () {
-    cardArray.push(this);
+    cards.push(this);
   });
 }
 
 function shuffleCards() {
-  for (let i = cardArray.length - 1; i > 0; i--) {
+  for (let i = cards.length - 1; i > 0; i--) {
     let randomPosition = Math.floor(Math.random() * 12);
-    cardArray[randomPosition].style.order = i;
-    cardArray[i].style.order = randomPosition;
+    cards[randomPosition].style.order = i;
+    cards[i].style.order = randomPosition;
   }
+}
+
+$("btnStart").on("click", function () {
+  let myMusic = new AudioController();
+  myMusic.startMusic();
+  addCards();
+
+  $("time-remaining").replaceWith(timeCountDown);
+});
+
+function timeCountDown() {
+  var timeRemaining = totalTime;
+  setInterval(function () {
+    timeRemaining--;
+    if (timeRemaining === 0) {
+      gameOver();
+    }
+  }, 1000);
+}
+
+function gameOver() {
+  clearInterval(timeCountDown());
+  alert("you lose");
 }
 
 $(document).ready(function () {
