@@ -17,6 +17,7 @@ class AudioController {
     this.victorySound = new Audio("assets/audio/victory.wav");
     this.gameOverSound = new Audio("assets/audio/gameover.wav");
     this.timeSound = new Audio("assets/audio/ticktock.wav");
+    this.btnClickSound = new Audio("assets/audio/click.wav")
     this.gameMusic.volume = 0.5;
     this.wrongSound.volume = 0.2; // this sound is quite loud
     this.gameMusic.loop = true;
