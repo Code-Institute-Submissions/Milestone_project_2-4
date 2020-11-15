@@ -2,8 +2,8 @@ let cards = []; // empty array to contain cards
 let cardFlipped = false;
 let firstPick, secondPick;
 let lockBoard = false; //you can only interact when lockBoard is false---fix bug
-var muteMusic = true;
-var muteSound = true;
+var musicMuted = false;
+var soundMuted = false;
 var totalTime = 45;
 var timeRemaining
 
@@ -23,10 +23,10 @@ class AudioController {
     this.gameMusic.loop = true;
   }
   Music() {
-    if (muteMusic === false) {
+    if (musicMuted === true) {
       this.gameMusic.play();
     } else {
-      this.gameMusic.pause();
+      this.stopMusic();
     }
   }
   btnStartSound() {
@@ -61,6 +61,7 @@ class AudioController {
   }
 }
 
+
 function addCards() {
   $(".card").each(function () {
     cards.push(this);
@@ -75,39 +76,25 @@ function shuffleCards() {
   }
 }
 
+//switch the muted ON/OFF
 function muteMusic() {
-  $("btnMusic").on("click", function () {
-    if (muteMusic === true) {
-      muteMusic === false;
-    } else {
-      muteMusic === true;
-    }
-  });
-}
-function muteSound() {
-  if(muteMusic===true){
-    console.log('music off')
-    $(".music-status").innerHTML('OFF')
+  if(musicMuted===true){
+    $(".music-status").html('OFF')
+    musicMuted=false
   } else{
-    console.log('music on')
-    $(".music-status").innerHTML('ON')
+    $(".music-status").html('ON')
+    musicMuted=true
   }
 }
 
-$(".btnMusic").bind({
-  click:function(){
-    if(muteMusic===true){
-      console.log('music off')
-      $(".music-status").html('OFF')
-      muteMusic=false
-    } else{
-      console.log('music on')
-      $(".music-status").html('ON')
-      muteMusic=true
-    }
-  },
-});
-
+//Play the background music
+function playMusic(){
+  let myMusic= new AudioController
+  $(".btnMusic").on('click',function(){
+    muteMusic();
+    myMusic.Music();
+  });
+}
 
 
 function btnStartGame() {
@@ -184,7 +171,9 @@ function game() {
   });
 };
 
+
 $(document).ready(function () {
+  playMusic();
   addCards();
   shuffleCards();
   game();
