@@ -3,7 +3,7 @@ let cardFlipped = false;
 let firstPick, secondPick;
 let lockBoard = false; //you can only interact when lockBoard is false---fix bug
 var muteMusic = true;
-var MuteSound = true;
+var muteSound = true;
 var totalTime = 45;
 var timeRemaining
 
@@ -31,6 +31,9 @@ class AudioController {
   }
   btnStartSound() {
     this.startGameSound.play();
+  }
+  clickSound() {
+    this.btnClickSound.play();
   }
   stopMusic() {
     this.gameMusic.pause();
@@ -81,10 +84,31 @@ function muteMusic() {
     }
   });
 }
-
-function MuteSound() {
-  myMusic.btnStartSound();
+function muteSound() {
+  if(muteMusic===true){
+    console.log('music off')
+    $(".music-status").innerHTML('OFF')
+  } else{
+    console.log('music on')
+    $(".music-status").innerHTML('ON')
+  }
 }
+
+$(".btnMusic").bind({
+  click:function(){
+    if(muteMusic===true){
+      console.log('music off')
+      $(".music-status").html('OFF')
+      muteMusic=false
+    } else{
+      console.log('music on')
+      $(".music-status").html('ON')
+      muteMusic=true
+    }
+  },
+});
+
+
 
 function btnStartGame() {
   $("btnStart").on("click", function () {
