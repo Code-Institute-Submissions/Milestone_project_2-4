@@ -5,6 +5,7 @@ let lockBoard = false; //you can only interact when lockBoard is false---fix bug
 var muteMusic = true;
 var MuteSound = true;
 var totalTime = 45;
+var timeRemaining
 
 class AudioController {
   constructor() {
@@ -84,27 +85,26 @@ function MuteSound() {
   myMusic.btnStartSound();
 }
 
-function startGame() {
+function btnStartGame() {
   $("btnStart").on("click", function () {
     let myMusic = new AudioController();
     myMusic.Music();
 
     /*Check the otherSound here */
     /////////////////////////
-
-    $("time-remaining").replaceWith(timeCountDown());
+    timeCountDown();
   });
 }
 
 function timeCountDown() {
-  var timeRemaining = totalTime;
+  timeRemaining = totalTime;
   setInterval(function () {
     timeRemaining--;
+    $('.time-remaining').innerHTML('hello')
     if (timeRemaining === 0) {
       gameOver();
     }
   }, 1000);
-  return timeRemaining;
 }
 
 function gameOver() {
@@ -161,7 +161,6 @@ function game() {
 
 $(document).ready(function () {
   addCards();
-  startGame();
   shuffleCards();
   game();
 });

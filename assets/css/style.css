@@ -1,16 +1,84 @@
 body {
-  /*height: 100vh; /*The game displays according to the screen size*/
   background-color: lightcyan;
+  margin:0
 }
 
-h2 {
+#game-title {
   text-align: center;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  font-family: "Comic Sans MS", sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  color: green;
+}
+
+@media (max-width: 600px) {
+  #game-title  {
+    font-size: 3em;
+  }
+}
+
+/*Game Menu*/
+.game-menu{
+  text-align: center;
+  padding-top: 1.5%;
+}
+
+/*Buttons*/
+.btnStart,
+.btnMusic,
+.btnSound,
+.btnInstruction {
+  width: 200px;
+  height: 60px;
+  margin-left: 40px;
+  font-family: "Comic Sans MS", sans-serif;
+  text-transform: uppercase;
+  background-color: #ffffdf;
+  color: #20bf6b;
+  border: 4px solid #20bf6b !important;
+  border-radius: 6px;
+  font-size: 1.5em;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+.btnStart:hover,
+.btnMusic:hover,
+.btnSound:hover,
+.btnInstruction:hover {
+  background-color: #ffffaf;
+  color: #8a8aff !important;
+  border-radius: 50px;
+  border-color: #8a8aff !important;
+  transition: all 0.3s ease 0s;
+}
+
+@media (max-width: 1200px) {
+  .btnStart,
+  .btnMusic,
+  .btnSound,
+  .btnInstruction {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .btnStart,
+  .btnMusic,
+  .btnSound,
+  .btnInstruction  {
+    display: none;
+  }
 }
 
 #game-container {
   margin: 0;
+}
+
+.game-container{
+
 }
 
 .cards-container {
