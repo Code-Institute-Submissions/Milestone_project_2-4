@@ -1,5 +1,3 @@
-[<img alt='Memo-flag logo' src="assets/images/logo.png" style="margin: 0;position:relative;left:-1%;width:150px;">](#)
-
 # Memo-flag
 
 Enjoy memory game, so this game is the one you are looking for.
@@ -31,14 +29,20 @@ To make the game simple for the user to understand. To give a full information n
 - ### User stories
 
 * As a user, I want to know how to play this game. (instruction)
-* As a user, I want to know how to play this game. (instruction)
-* As a user, I want to view movies. (movies page)
-* As a user, I want to know how I can contact. (contact page and footer)
-* As a user, I want to report bugs. (contact page)
-* As a user, I'm mostly busy and I want to find quick and preferable on my phone. ( responsive)
+* As a user, I want to understand what does the button use for. (instruction)
+* As a user, I want to listen to music or turn the music off while playing. (music ON/OFF)
+* As a user, I want to here sound when I click on something such as cards and buttons.(sound ON/OFF)
+* As a user, I want to know when I win or lose the game.
+* As a user, I want to here sound when I win or when I lose the game.(sound ON/OFF)
+* As a user, I want to play the game again when it's over. (button PlayAgain)
+* As a user, I want to report bugs. (report button)
+* As a user, I want play the game on multiple devices. (responsive)
+* As a user, when my screen is small I want to find quick and preferable on my phone. (responsive)
 
 - ### Design
-
+* Color use are shade of green and blue
+* Font-family is "Comic Sans MS", sans-serif
+* Grid to position cards
 
 ## Features
 
