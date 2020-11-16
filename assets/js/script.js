@@ -146,10 +146,14 @@ function game() {
       } else {
         $(this).addClass("flip");
       }
-    } else {
-      alert('Please click the Start button')
+    }
+    else {
+      if (lockBoard === true & gameStart===false) {
+        alert('Please click the Start button');
+      }
       return;
     }
+
 
     //check if this is first click
     if (cardFlipped === false) {
@@ -196,7 +200,7 @@ $(document).ready(function () {
   playMusic();
   muteSound();
   game();
-  var gameStart = false
+  gameStart = false
   /*Button start*/
 
   $(".btnStart").on("click", function () {
