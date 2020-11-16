@@ -44,14 +44,30 @@ body {
   transition: all 0.3s ease 0s;
 }
 
+.sound-status,
+.music-status {
+  font-weight: bold;
+}
+
 .btnStart:hover,
 .btnMusic:hover,
 .btnSound:hover,
 #btnInstruction:hover {
   background-color: #ffffaf;
-  color: #8a8aff !important;
+  color: #20bf6b !important;
   border-radius: 50px;
-  border-color: #8a8aff !important;
+  border-color: #20bf6b  !important;
+  transition: all 0.3s ease 0s;
+}
+
+.btnStart:active,
+.btnMusic:active,
+.btnSound:active,
+#btnInstruction:active {
+  background-color: #ffffaf;
+  color: #20df6b !important;
+  border-radius: 50px;
+  border-color: #20df6b  !important;
   transition: all 0.3s ease 0s;
 }
 
