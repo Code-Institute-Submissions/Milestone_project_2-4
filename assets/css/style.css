@@ -29,7 +29,7 @@ body {
 .btnStart,
 .btnMusic,
 .btnSound,
-.btnInstruction {
+#btnInstruction {
   width: 180px;
   height: 60px;
   margin-left: 40px;
@@ -47,7 +47,7 @@ body {
 .btnStart:hover,
 .btnMusic:hover,
 .btnSound:hover,
-.btnInstruction:hover {
+#btnInstruction:hover {
   background-color: #ffffaf;
   color: #8a8aff !important;
   border-radius: 50px;

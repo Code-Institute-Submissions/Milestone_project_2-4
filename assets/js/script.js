@@ -1,7 +1,7 @@
 let cards = []; // empty array to contain cards
 let cardFlipped = false;
 let firstPick, secondPick;
-let lockBoard = false;
+let lockBoard = true;
 var musicMuted = false;
 var soundMuted = false;
 var totalTime = 45;
@@ -121,23 +121,11 @@ $('.btnInstruction').on('click', function(){
   }
 });
 
-
-function btnStartGame() {
-  $("btnStart").on("click", function () {
-    /*Check the otherSound here */
-    /////////////////////////
-    if (playSound===true){
-      myMusic.btnStartGame();
-    }
-    timeCountDown();
-  });
-};
-
 function timeCountDown() {
   timeRemaining = totalTime;
   setInterval(function () {
     timeRemaining--;
-    $('.time-remaining').innerHTML('hello')
+    $('.time-remaining').html(timeRemaining);
     if (timeRemaining === 0) {
       gameOver();
     }
@@ -159,6 +147,7 @@ function game() {
         $(this).addClass("flip");
       }
     } else {
+      alert('Please click the Start button')
       return;
     }
 
@@ -168,14 +157,14 @@ function game() {
       firstPick = this;
       if (playSound===true){
         myMusic.flip();
-      }
+      };
     } else {
       //if not second click
       cardFlipped = false;
       secondPick = this;
       if (playSound===true){
         myMusic.flip();
-      }
+      };
       //Check for match
       if (firstPick.dataset.flag_name === secondPick.dataset.flag_name) {
         // for matched case we will disable the click method so the user can not click on the same card
@@ -183,7 +172,7 @@ function game() {
         $(secondPick).off("click");
         if (playSound===true){
           myMusic.correct();
-        }
+        };
       } else {
         // if it's not match
         lockBoard = true;
@@ -195,7 +184,6 @@ function game() {
           }
           $(firstPick).removeClass("flip");
           $(secondPick).removeClass("flip");
-
           //the front card will flip to the back card when we remove the flip class
           lockBoard = false;
         }, 1000);
@@ -207,16 +195,31 @@ function game() {
 $(document).ready(function () {
   playMusic();
   muteSound();
-  addCards();
-  shuffleCards();
   game();
+  var gameStart = false
+  /*Button start*/
+
+  $(".btnStart").on("click", function () {
+    if (gameStart!=true){
+      addCards();
+      shuffleCards();
+      lockBoard = false;
+      if (playSound===true){
+        myMusic.btnStartGame();
+      }
+      timeCountDown();
+      gameStart = true
+    } else {
+      return;
+    }
+  });
 });
 
 // Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btn = document.getElementById("btnInstruction");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
