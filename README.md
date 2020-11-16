@@ -20,7 +20,7 @@ The game board consists of 12 cards arranged randomly in a grid. The deck is mad
 The game ends once all cards have been correctly matched.
 
 ## Demo
-You can play this game by click 
+You can play this game by click
 [here](https://longvn99.github.io/Milestone_project_2/)
 
 ![Design](https://github.com/LongVN99/Milestone_project_2/blob/5db7ba711bccb45e634c892d1cb12841b3fd987e/assets/mockups/Desktop.png)
@@ -29,13 +29,13 @@ You can play this game by click
 To make the game simple for the user to understand. To give a full information necessaire to know how to play Memo-flag.
 
 - ### User stories
-    
-    * As a user, I want to know how to play this game. (instruction)
-    * As a user, I want to know how to play this game. (instruction)
-    * As a user, I want to view movies. (movies page)
-    * As a user, I want to know how I can contact. (contact page and footer)
-    * As a user, I want to report bugs. (contact page)
-    * As a user, I'm mostly busy and I want to find quick and preferable on my phone. ( responsive)
+
+* As a user, I want to know how to play this game. (instruction)
+* As a user, I want to know how to play this game. (instruction)
+* As a user, I want to view movies. (movies page)
+* As a user, I want to know how I can contact. (contact page and footer)
+* As a user, I want to report bugs. (contact page)
+* As a user, I'm mostly busy and I want to find quick and preferable on my phone. ( responsive)
 
 - ### Design
 
@@ -49,6 +49,7 @@ To make the game simple for the user to understand. To give a full information n
 * Score - score add according to time, the faster the player finds matched cards the more score player obtains
 * User can report a problem to the game developper (report icon)
 
+<a name="browsersuport"></a>
 ## Browser support
 
 ### The browser version that fully supports.
@@ -59,7 +60,15 @@ To make the game simple for the user to understand. To give a full information n
 * Opera *(23.0)*
 * Safari *(9.0)*
 
+##Code
+
 ## Testing
+All buttons function correctly. Start button to begin the game, if player didn't click this button an alert message will show up. Music and sound button able to switch ON/OFF, by default the music and sound is OFF. User is able to hear sound and music when it switches to ON. As a new user, I want to understand what does the button do and how to play the game. So, I create an Instruction button which allow user to understand how to play the game and the game features. A modal in which all necessaire content about the game will pop up when user clicks on this button. Here user is able to choose the content which he/she wants to learn more. These buttons have its own style to increase the look and feel of users.
+
+As a user, I want the game look good when playing. So I add 3D effect to make the game better. However this property is only support by later browser version as shown in the [Browser support](#browsersuport).
+As a user, I want game functions correctly without bug. To fix the bug when user click on the same card multiple time, I create a condition which return when it's the same card (define as firstPick).
+In matched case, a bug will occur if user click on the flipped cards. Here, I disable the click method on these cards to prevent bug by using Jquery .off method (ex: $(firstPick).off("click")).
+
 
 ## Strategy
 
@@ -78,10 +87,10 @@ The goal in the design was to make it as easy as possible for non experience use
 
 ## Structure
 
-The game menu is structured to get the right information as quickly as possible. The game itself is structured in hope of user feels ease while playing (He/She can see all the cards orderly arranged). 
+The game menu is structured to get the right information as quickly as possible. The game itself is structured in hope of user feels ease while playing (He/She can see all the cards orderly arranged).
 
 ## Known Issues
-
+Minor different when click button on Chrome and Firefox. In Chrome there is a black border appears on click.
 
 ## Deployment
 This site is hosted using GitHub pages, deployed directly from the master branch. The deployed site will update automatically upon new commits to the master branch. In order for the site to deploy correctly on GitHub pages, the landing page must be named index.html.
@@ -94,7 +103,7 @@ To run locally, you  can clone this repository directly into the editor of your 
 
 ### `How to open this project localy`
 
-1. Open Milestone_Project_1 on Github 
+1. Open Milestone_Project_1 on Github
 1. Download as a ZIP file
 1. Extract the folder
 1. Open Memo-flag folder
