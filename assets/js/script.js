@@ -1,11 +1,12 @@
 let cards = []; // empty array to contain cards
 let cardFlipped = false;
 let firstPick, secondPick;
-let lockBoard = false; //you can only interact when lockBoard is false---fix bug
+let lockBoard = false;
 var musicMuted = false;
 var soundMuted = false;
 var totalTime = 45;
-var timeRemaining
+var timeRemaining;
+var playMusic, playSound;
 
 class AudioController {
   constructor() {
@@ -18,26 +19,26 @@ class AudioController {
     this.gameOverSound = new Audio("assets/audio/gameover.wav");
     this.timeSound = new Audio("assets/audio/ticktock.wav");
     this.btnClickSound = new Audio("assets/audio/click.wav")
-    this.gameMusic.volume = 0.5;
-    this.wrongSound.volume = 0.2; // this sound is quite loud
+    this.gameMusic.volume = 0.4;
+    this.wrongSound.volume = 0.15; // this sound is quite loud
     this.gameMusic.loop = true;
   }
   Music() {
-    if (musicMuted === true) {
+    if (playMusic === true) {
       this.gameMusic.play();
     } else {
       this.stopMusic();
     }
+  }
+  stopMusic() {
+    this.gameMusic.pause();
+    this.gameMusic.currentTime = 0;
   }
   btnStartSound() {
     this.startGameSound.play();
   }
   clickSound() {
     this.btnClickSound.play();
-  }
-  stopMusic() {
-    this.gameMusic.pause();
-    this.gameMusic.currentTime = 0;
   }
   flip() {
     this.flipSound.play();
@@ -81,27 +82,40 @@ function muteMusic() {
   if(musicMuted===true){
     $(".music-status").html('OFF')
     musicMuted=false
+    playMusic=musicMuted
   } else{
     $(".music-status").html('ON')
     musicMuted=true
+    playMusic=musicMuted
   }
+}
+
+function muteSound() {
+  myMusic= new AudioController
+  $(".btnSound").on('click',function(){
+    if(soundMuted===true){
+      $(".sound-status").html('OFF')
+      soundMuted=false
+      playSound=soundMuted
+    } else{
+      $(".sound-status").html('ON')
+      soundMuted=true
+      playSound=soundMuted
+    }
+  });
 }
 
 //Play the background music
 function playMusic(){
-  let myMusic= new AudioController
+  myMusic= new AudioController
   $(".btnMusic").on('click',function(){
     muteMusic();
     myMusic.Music();
   });
 }
 
-
 function btnStartGame() {
   $("btnStart").on("click", function () {
-    let myMusic = new AudioController();
-    myMusic.Music();
-
     /*Check the otherSound here */
     /////////////////////////
     timeCountDown();
@@ -141,25 +155,33 @@ function game() {
     if (cardFlipped === false) {
       cardFlipped = true;
       firstPick = this;
-      //myMusic.flip();
+      if (playSound===true){
+        myMusic.flip();
+      }
     } else {
       //if not second click
       cardFlipped = false;
       secondPick = this;
-      //myMusic.flip();
+      if (playSound===true){
+        myMusic.flip();
+      }
       //Check for match
       if (firstPick.dataset.flag_name === secondPick.dataset.flag_name) {
         // for matched case we will disable the click method so the user can not click on the same card
         $(firstPick).off("click");
         $(secondPick).off("click");
-        //myMusic.correct();
+        if (playSound===true){
+          myMusic.correct();
+        }
       } else {
         // if it's not match
         lockBoard = true;
         setTimeout(function () {
           //setTimeout method allow user to see the second pick by adding more time before calling the function
           //without this method the game flip the second pick card very fast that the user aren't able to see his second pick
-          //myMusic.wrong();
+          if (playSound===true){
+            myMusic.wrong();
+          }
           $(firstPick).removeClass("flip");
           $(secondPick).removeClass("flip");
 
@@ -171,9 +193,9 @@ function game() {
   });
 };
 
-
 $(document).ready(function () {
   playMusic();
+  muteSound();
   addCards();
   shuffleCards();
   game();
