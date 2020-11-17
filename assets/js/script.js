@@ -5,8 +5,9 @@ let lockBoard = true;
 var musicMuted = false;
 var soundMuted = false;
 var totalTime = 45;
+var score = 0;
 var timeRemaining;
-var playMusic, playSound;
+var playMusic, gameSound;
 var matchedCase = [];
 
 class AudioController {
@@ -88,7 +89,7 @@ function muteMusic() {
     $(".music-status").html('ON')
     musicMuted=true
     playMusic=musicMuted
-    if (playSound===true){
+    if (gameSound===true){
       myMusic.clickSound();
     }
   }
@@ -100,11 +101,11 @@ function muteSound() {
     if(soundMuted===true){
       $(".sound-status").html('OFF')
       soundMuted=false
-      playSound=soundMuted
+      gameSound=soundMuted
     } else{
       $(".sound-status").html('ON')
       soundMuted=true
-      playSound=soundMuted
+      gameSound=soundMuted
     }
   });
 }
@@ -120,10 +121,10 @@ function playMusic(){
 
 function timeCountDown() {
   timeRemaining = totalTime;
-  setInterval(function () {
+  countDown = setInterval(function () {
     timeRemaining--;
     $('.time-remaining').html(timeRemaining);
-    if (timeRemaining === 5) {
+    if (timeRemaining === 5 & gameSound===true) {
       myMusic.timeAboutToEnd();
     }
     if (timeRemaining === 0) {
@@ -132,20 +133,36 @@ function timeCountDown() {
   }, 1000);
 }
 
+function addScore(){
+  if (timeRemaining >= 30){
+    score +=10;
+    $('.score').html(score);
+  } else if (timeRemaining < 30 & timeRemaining >= 10) {
+    score += 5;
+    $('.score').html(score);
+  } else if (timeRemaining < 10) {
+    score +=2;
+    $('.score').html(score);
+  }
+}
+
 function gameOver() {
-  clearInterval(timeCountDown());
-  if (playSound===true){
+  clearInterval(countDown);
+  if (gameSound===true){
     myMusic.gameOver();
   };
   alert("you lose");
+  gameStart=false;
 }
 
 function victory(){
   if(matchedCase.length===cards.length){
-    if (playSound===true){
+    clearInterval(countDown);
+    if (gameSound===true){
       myMusic.victory();
     }
     alert('You Win')
+    gameStart=false;
   } else {
     return;
   }
@@ -168,19 +185,18 @@ function game() {
       return;
     }
 
-
     //check if this is first click
     if (cardFlipped === false) {
       cardFlipped = true;
       firstPick = this;
-      if (playSound===true){
+      if (gameSound===true){
         myMusic.flip();
       };
     } else {
       //if not second click
       cardFlipped = false;
       secondPick = this;
-      if (playSound===true){
+      if (gameSound===true){
         myMusic.flip();
       };
       //Check for match
@@ -188,18 +204,19 @@ function game() {
         // for matched case we will disable the click method so the user can not click on the same card
         $(firstPick).off("click");
         $(secondPick).off("click");
-        if (playSound===true){
+        if (gameSound===true){
           myMusic.correct();
         };
         matchedCase.push(firstPick,secondPick);
-        victory()
+        addScore();
+        victory() ;//Check if player win the game
       } else {
         // if it's not match
         lockBoard = true;
         setTimeout(function () {
           //setTimeout method allow user to see the second pick by adding more time before calling the function
           //without this method the game flip the second pick card very fast that the user aren't able to see his second pick
-          if (playSound===true){
+          if (gameSound===true){
             myMusic.wrong();
           }
           $(firstPick).removeClass("flip");
@@ -223,7 +240,8 @@ $(document).ready(function () {
       addCards();
       shuffleCards();
       lockBoard = false;
-      if (playSound===true){
+      timeRemaining = totalTime;
+      if (gameSound===true){
         myMusic.startSound();
       }
       timeCountDown();
@@ -234,7 +252,7 @@ $(document).ready(function () {
   });
   /*button Instruction*/
   $('#btnInstruction').on('click', function(){
-    if (playSound===true){
+    if (gameSound===true){
       myMusic.clickSound();
     }
   });
