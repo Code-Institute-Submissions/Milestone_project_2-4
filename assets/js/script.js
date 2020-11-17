@@ -4,7 +4,7 @@ let firstPick, secondPick;
 let lockBoard = true;
 var musicMuted = false;
 var soundMuted = false;
-var totalTime = 45;
+var totalTime = 3;
 var score = 0;
 var timeRemaining;
 var playMusic, gameSound;
@@ -95,7 +95,7 @@ function muteMusic() {
   }
 }
 
-function muteSound() {
+function playSound() {
   myMusic= new AudioController
   $(".btnSound").on('click',function(){
     if(soundMuted===true){
@@ -153,6 +153,7 @@ function gameOver() {
   };
   alert("you lose");
   gameStart=false;
+  lockBoard=true;
 }
 
 function victory(){
@@ -163,9 +164,21 @@ function victory(){
     }
     alert('You Win')
     gameStart=false;
+    lockBoard=true;
   } else {
     return;
   }
+}
+
+function defaultState(){
+  matchedCase = [];
+  timeRemaining = totalTime;
+  score = 0;
+  $('.score').html(0);
+  $(".flip").removeClass('flip');
+  gameStart=false;
+  lockBoard=true;
+  console.log(gameStart,lockBoard)
 }
 
 function game() {
@@ -231,21 +244,22 @@ function game() {
 
 $(document).ready(function () {
   playMusic();
-  muteSound();
+  playSound();
   game();
   gameStart = false
   /*Button start*/
   $(".btnStart").on("click", function () {
     if (gameStart!=true){
+      defaultState();
       addCards();
       shuffleCards();
+      timeCountDown();
       lockBoard = false;
-      timeRemaining = totalTime;
+      gameStart = true;
       if (gameSound===true){
         myMusic.startSound();
       }
-      timeCountDown();
-      gameStart = true
+
     } else {
       return;
     }
