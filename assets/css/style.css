@@ -222,12 +222,22 @@ body {
   animation-duration: 0.4s
 }
 
+/*Modal header*/
+.modal-header{
+  text-align: center ;
+  text-transform: uppercase;
+}
+
 /* Modal Content */
 .modal-content {
   position: fixed;
   bottom: 0;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  font-size: 1.1em;
+  text-align: left;
   background-color: #fefefe;
-  width: 100%;
+  width: 75%%;
   -webkit-animation-name: slideIn;
   -webkit-animation-duration: 0.4s;
   animation-name: slideIn;
@@ -247,6 +257,7 @@ body {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .modal-header {
@@ -261,6 +272,7 @@ body {
   padding: 2px 16px;
   background-color: #5cb85c;
   color: white;
+  min-height: 50px;
 }
 
 /* Add Animation */

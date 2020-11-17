@@ -4,7 +4,7 @@ let firstPick, secondPick;
 let lockBoard = true;
 var musicMuted = false;
 var soundMuted = false;
-var totalTime = 3;
+var totalTime = 45;
 var score = 0;
 var timeRemaining;
 var playMusic, gameSound;
