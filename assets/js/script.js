@@ -163,9 +163,9 @@ function victory(){
     if (gameSound===true){
       myMusic.victory();
     }
-    myscore = score;
+    myScore = "\tCongratulations you win the game\t"+"\n\n\tYour score: " + score +"\t";
     resetBoard();
-    alert('You Win', 'your score', score)
+    alert(myScore)
   }
 }
 
@@ -221,7 +221,7 @@ function notMatched(){
 function game() {
   $(".card").off('click').on("click", function () {
     if (lockBoard === true & gameStart ===false){
-      alert('click start');
+      alert('Please click start');
     };
     if (lockBoard === false) {
       if (this === firstPick) {  //user can not click the same card again
@@ -263,7 +263,7 @@ function startGame(){
       myMusic.startSound();
     };
   } else {
-    alert('click start');
+    alert('Please click start');
   };
 };
 
@@ -274,8 +274,10 @@ $(document).ready(function () {
   alert('Click Start to play the game');
   /*---Button start---*/
   $(".btnStart").on("click", function () {
-    gameStart = true;
-    setTimeout(startGame(),500);
+    if (gameStart!=true){
+      gameStart = true;
+      setTimeout(startGame(),500);
+    };
   });
   /*button Instruction*/
   $('#btnInstruction').on('click', function(){
