@@ -1,6 +1,6 @@
 body {
   background-color: lightcyan;
-  margin:0
+  margin:0;
 }
 
 #game-title {
@@ -94,14 +94,10 @@ body {
   margin: 0;
 }
 
-.game-container{
-
-}
-
 .game-info {
   grid-column: 1 / -1;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .game-score,
@@ -230,14 +226,13 @@ body {
 
 /* Modal Content */
 .modal-content {
-  position: fixed;
-  bottom: 0;
-  margin-left: 12.5%;
-  margin-right: 12.5%;
+  font-family: "Comic Sans MS", sans-serif;
+  margin:auto;
+  margin-top:15%;
+  width: 75%;
   font-size: 1.1em;
   text-align: left;
   background-color: #fefefe;
-  width: 75%%;
   -webkit-animation-name: slideIn;
   -webkit-animation-duration: 0.4s;
   animation-name: slideIn;
