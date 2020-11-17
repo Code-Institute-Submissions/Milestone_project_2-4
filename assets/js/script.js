@@ -3,10 +3,10 @@ let matchedCase = [];
 let cardFlipped = false;
 let firstPick, secondPick;
 let lockBoard = true;
-let  gameStart = false
+let gameStart = false;
 var musicMuted = false;
 var soundMuted = false;
-var totalTime = 5;
+var totalTime = 45;
 var score = 0;
 var timeRemaining;
 var playMusic, gameSound;
@@ -153,8 +153,8 @@ function gameOver() {
   if (gameSound===true){
     myMusic.gameOver();
   };
-  alert("you lose");
-  resetBoard();
+  resetBoard()
+  setTimeout(alert("You Lose"),500);
 }
 
 function victory(){
@@ -163,8 +163,9 @@ function victory(){
     if (gameSound===true){
       myMusic.victory();
     }
-    alert('You Win')
+    myscore = score;
     resetBoard();
+    alert('You Win', 'your score', score)
   }
 }
 
@@ -177,25 +178,28 @@ function resetBoard(){
   firstPick = null;
   secondPick = null;
   cardFlipped=false;
-  lockBoard=true;
+  lockBoard = true;
   gameStart=false;
 }
 
+function disableClick(){
+  $(this.firstPick).off("click");
+  $(this.secondPick).off("click");
+}
 /*---Matched Case---*/
 function checkMatched() {
   if (firstPick.dataset.flag_name === secondPick.dataset.flag_name) {
     // for matched case we will disable the click method so the user can not click on the same card
-    $(firstPick).off("click");
-    $(secondPick).off("click");
+    disableClick();
     if (gameSound===true){
       myMusic.correct();
     };
     matchedCase.push(firstPick,secondPick);
     addScore();
-    victory();//Check if player win the game
   } else {
     notMatched();
   }
+  victory();//Check if player win the game
 }
 
 /*---Not Mathced Case---*/
@@ -215,7 +219,10 @@ function notMatched(){
 };
 
 function game() {
-  $(".card").on("click", function () {
+  $(".card").off('click').on("click", function () {
+    if (lockBoard === true & gameStart ===false){
+      alert('click start');
+    };
     if (lockBoard === false) {
       if (this === firstPick) {  //user can not click the same card again
         return;
@@ -223,9 +230,10 @@ function game() {
         $(this).addClass("flip");
       }
     }
-    else {
+    else{
       return;
-    }
+    };
+
     //check if this is first click
     if (cardFlipped === false) {
       cardFlipped = true;
@@ -245,22 +253,29 @@ function game() {
   });
 };
 
+function startGame(){
+  lockBoard = false;
+  if (gameStart===true){
+    addCards();
+    shuffleCards();
+    timeCountDown();
+    if (gameSound===true){
+      myMusic.startSound();
+    };
+  } else {
+    alert('click start');
+  };
+};
+
 $(document).ready(function () {
   playMusic();
   playSound();
+  game();
+  alert('Click Start to play the game');
   /*---Button start---*/
   $(".btnStart").on("click", function () {
-    lockBoard = false;
     gameStart = true;
-    if (gameStart===true){
-      game();
-      addCards();
-      shuffleCards();
-      timeCountDown();
-      if (gameSound===true){
-        myMusic.startSound();
-      }
-    }
+    setTimeout(startGame(),500);
   });
   /*button Instruction*/
   $('#btnInstruction').on('click', function(){
