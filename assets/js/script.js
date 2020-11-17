@@ -1,14 +1,16 @@
 let cards = []; // empty array to contain cards
+let matchedCase = [];
 let cardFlipped = false;
 let firstPick, secondPick;
 let lockBoard = true;
+let  gameStart = false
 var musicMuted = false;
 var soundMuted = false;
-var totalTime = 45;
+var totalTime = 5;
 var score = 0;
 var timeRemaining;
 var playMusic, gameSound;
-var matchedCase = [];
+
 
 class AudioController {
   constructor() {
@@ -79,7 +81,7 @@ function shuffleCards() {
   }
 }
 
-//switch the muted ON/OFF
+/*---switch the muted ON/OFF---*/
 function muteMusic() {
   if(musicMuted===true){
     $(".music-status").html('OFF')
@@ -110,7 +112,7 @@ function playSound() {
   });
 }
 
-//Play the background music
+/*---Play the background music---*/
 function playMusic(){
   myMusic= new AudioController
   $(".btnMusic").on('click',function(){
@@ -152,8 +154,7 @@ function gameOver() {
     myMusic.gameOver();
   };
   alert("you lose");
-  gameStart=false;
-  lockBoard=true;
+  resetBoard();
 }
 
 function victory(){
@@ -163,41 +164,68 @@ function victory(){
       myMusic.victory();
     }
     alert('You Win')
-    gameStart=false;
-    lockBoard=true;
-  } else {
-    return;
+    resetBoard();
   }
 }
 
-function defaultState(){
+function resetBoard(){
   matchedCase = [];
   timeRemaining = totalTime;
   score = 0;
   $('.score').html(0);
   $(".flip").removeClass('flip');
-  gameStart=false;
+  firstPick = null;
+  secondPick = null;
+  cardFlipped=false;
   lockBoard=true;
-  console.log(gameStart,lockBoard)
+  gameStart=false;
 }
+
+/*---Matched Case---*/
+function checkMatched() {
+  if (firstPick.dataset.flag_name === secondPick.dataset.flag_name) {
+    // for matched case we will disable the click method so the user can not click on the same card
+    $(firstPick).off("click");
+    $(secondPick).off("click");
+    if (gameSound===true){
+      myMusic.correct();
+    };
+    matchedCase.push(firstPick,secondPick);
+    addScore();
+    victory();//Check if player win the game
+  } else {
+    notMatched();
+  }
+}
+
+/*---Not Mathced Case---*/
+function notMatched(){
+  lockBoard = true;
+  setTimeout(function () {
+    //setTimeout method allow user to see the second pick by adding more time before calling the function
+    //without this method the game flip the second pick card very fast that the user aren't able to see his second pick
+    if (gameSound===true){
+      myMusic.wrong();
+    }
+    $(firstPick).removeClass("flip");
+    $(secondPick).removeClass("flip");
+    //the front card will flip to the back card when we remove the flip class
+    lockBoard = false;
+  }, 1000);
+};
 
 function game() {
   $(".card").on("click", function () {
     if (lockBoard === false) {
-      if (this === firstPick) {
-        //user can not click the same card again
+      if (this === firstPick) {  //user can not click the same card again
         return;
       } else {
         $(this).addClass("flip");
       }
     }
     else {
-      if (lockBoard === true & gameStart===false) {
-        alert('Please click the Start button');
-      }
       return;
     }
-
     //check if this is first click
     if (cardFlipped === false) {
       cardFlipped = true;
@@ -212,32 +240,7 @@ function game() {
       if (gameSound===true){
         myMusic.flip();
       };
-      //Check for match
-      if (firstPick.dataset.flag_name === secondPick.dataset.flag_name) {
-        // for matched case we will disable the click method so the user can not click on the same card
-        $(firstPick).off("click");
-        $(secondPick).off("click");
-        if (gameSound===true){
-          myMusic.correct();
-        };
-        matchedCase.push(firstPick,secondPick);
-        addScore();
-        victory() ;//Check if player win the game
-      } else {
-        // if it's not match
-        lockBoard = true;
-        setTimeout(function () {
-          //setTimeout method allow user to see the second pick by adding more time before calling the function
-          //without this method the game flip the second pick card very fast that the user aren't able to see his second pick
-          if (gameSound===true){
-            myMusic.wrong();
-          }
-          $(firstPick).removeClass("flip");
-          $(secondPick).removeClass("flip");
-          //the front card will flip to the back card when we remove the flip class
-          lockBoard = false;
-        }, 1000);
-      };
+      checkMatched();
     };
   });
 };
@@ -245,23 +248,18 @@ function game() {
 $(document).ready(function () {
   playMusic();
   playSound();
-  game();
-  gameStart = false
-  /*Button start*/
+  /*---Button start---*/
   $(".btnStart").on("click", function () {
-    if (gameStart!=true){
-      defaultState();
+    lockBoard = false;
+    gameStart = true;
+    if (gameStart===true){
+      game();
       addCards();
       shuffleCards();
       timeCountDown();
-      lockBoard = false;
-      gameStart = true;
       if (gameSound===true){
         myMusic.startSound();
       }
-
-    } else {
-      return;
     }
   });
   /*button Instruction*/
