@@ -7,6 +7,7 @@ var soundMuted = false;
 var totalTime = 45;
 var timeRemaining;
 var playMusic, playSound;
+var matchedCase = [];
 
 class AudioController {
   constructor() {
@@ -20,7 +21,8 @@ class AudioController {
     this.timeSound = new Audio("assets/audio/ticktock.wav");
     this.btnClickSound = new Audio("assets/audio/click.wav")
     this.gameMusic.volume = 0.4;
-    this.wrongSound.volume = 0.15; // this sound is quite loud
+    this.clickSound.volume = 0.2;
+    this.wrongSound.volume = 0.1; // this sound is quite loud
     this.gameMusic.loop = true;
   }
   Music() {
@@ -34,7 +36,7 @@ class AudioController {
     this.gameMusic.pause();
     this.gameMusic.currentTime = 0;
   }
-  btnStartSound() {
+  startSound() {
     this.startGameSound.play();
   }
   clickSound() {
@@ -56,7 +58,7 @@ class AudioController {
   timeAboutToEnd() {
     this.timeSound.play();
   }
-  gameOverSound() {
+  gameOver() {
     this.stopMusic();
     this.gameOverSound.play();
   }
@@ -115,17 +117,15 @@ function playMusic(){
     myMusic.Music();
   });
 };
-$('.btnInstruction').on('click', function(){
-  if (playSound===true){
-    myMusic.clickSound();
-  }
-});
 
 function timeCountDown() {
   timeRemaining = totalTime;
   setInterval(function () {
     timeRemaining--;
     $('.time-remaining').html(timeRemaining);
+    if (timeRemaining === 5) {
+      myMusic.timeAboutToEnd();
+    }
     if (timeRemaining === 0) {
       gameOver();
     }
@@ -134,7 +134,21 @@ function timeCountDown() {
 
 function gameOver() {
   clearInterval(timeCountDown());
+  if (playSound===true){
+    myMusic.gameOver();
+  };
   alert("you lose");
+}
+
+function victory(){
+  if(matchedCase.length===cards.length){
+    if (playSound===true){
+      myMusic.victory();
+    }
+    alert('You Win')
+  } else {
+    return;
+  }
 }
 
 function game() {
@@ -177,6 +191,8 @@ function game() {
         if (playSound===true){
           myMusic.correct();
         };
+        matchedCase.push(firstPick,secondPick);
+        victory()
       } else {
         // if it's not match
         lockBoard = true;
@@ -202,19 +218,24 @@ $(document).ready(function () {
   game();
   gameStart = false
   /*Button start*/
-
   $(".btnStart").on("click", function () {
     if (gameStart!=true){
       addCards();
       shuffleCards();
       lockBoard = false;
       if (playSound===true){
-        myMusic.btnStartGame();
+        myMusic.startSound();
       }
       timeCountDown();
       gameStart = true
     } else {
       return;
+    }
+  });
+  /*button Instruction*/
+  $('#btnInstruction').on('click', function(){
+    if (playSound===true){
+      myMusic.clickSound();
     }
   });
 });
