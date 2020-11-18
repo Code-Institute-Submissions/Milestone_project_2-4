@@ -22,34 +22,33 @@ The game ends once all cards have been correctly matched.
 You can play this game right away by clicking
 [here](https://longvn99.github.io/Milestone_project_2/)
 
-![Design](assets\images\Memo-flag.pdf)
+![Design](https://github.com/LongVN99/Milestone_project_2/blob/f6eea6638c963435fcbd600e0ca30d6db7a48d2b/assets/mockups/Memo-flag.pdf)
 
 ## User Experience (UX)
 To make the game simple for the user to understand and to give a full information necessaire to know how to play Memo-flag.
 
 - ### User stories
+    -   #### New Player Goals
+        1. As a new player, I want to know how to play this game. (instruction)
+        2. As a new player, I want to understand how does the score is calculated. (instruction)
+        3. As a new player, I want to listen to music or turn the music off while playing. (music ON/OFF)
+        4. As a new player, I want to here sound when I click on something such as cards and buttons.(sound ON/OFF)
+        5. As a new player, I want to know when I win or lose the game. (alert message)
+        6. As a new player, I want to here sound when I win or when I lose the game.(sound ON/OFF)
 
--   #### New Player Goals
-* As a new player, I want to know how to play this game. (instruction)
-* As a new player, I want to understand how does the score is calculated. (instruction)
-* As a new player, I want to listen to music or turn the music off while playing. (music ON/OFF)
-* As a new player, I want to here sound when I click on something such as cards and buttons.(sound ON/OFF)
-* As a new player, I want to know when I win or lose the game. (alert message)
-* As a new player, I want to here sound when I win or when I lose the game.(sound ON/OFF)
+    -   #### Returning Player Goals.
+        1. As a returning player, I want to report bug from the game to developer.
+        2. As a returning player, I want to change different difficult level of the game.
 
--   #### Returning Player Goals.
-* As a returning player, I want to report bug from the game to developer.
-* As a returning player, I want to change different difficult level of the game.
+    -   #### Frequent Player Goals
+        1. As a frequent player, I want to play the game again when it's over. (button Re-Start)
+        2. As a frequent player, I want play the game on multiple devices. (responsive)
 
--   #### Frequent Player Goals
-* As a frequent player, I want to play the game again when it's over. (button Re-Start)
-* As a frequent player, I want play the game on multiple devices. (responsive)
-
-- ### Design
--   #### Colour Scheme
--   Main color used are shade of green, yellow and blue
--   #### Typography
--   I use Comic Sans MS with Sans Serif for all contents in this game.
+-   ### Design
+    -   #### Colour Scheme
+        *   Main color used are shade of green, yellow and blue
+    -   #### Typography
+        *   I use Comic Sans MS with Sans Serif for all contents in this game.
 
 ## Features
 
@@ -59,67 +58,65 @@ To make the game simple for the user to understand and to give a full informatio
 * Time - A timer displaying the number of seconds that have elapsed. Run out of time mean player lose the game
 * Score - score add according to time, the faster the player finds matched cards the more score player obtains
 
-- ### Future features
-* Report button - Allow player to report bug from the game to developper
-* Game mode - Allow player to choose different difficult level of the game (add more cards)
+### Future features
+1. Report button - Allow player to report bug from the game to developper
+2. Game mode - Allow player to choose different difficult level of the game (add more cards)
 
 <a name="browsersuport"></a>
 ## Browser support
 
-### The browser version that fully supports.
+-   ### The browser version that fully supports.
+    * Chrome *(36.0)*
+    * Edge *(10.0)*
+    * Firefox *(16.0)*
+    * Opera *(23.0)*
+    * Safari *(9.0)*
 
-* Chrome *(36.0)*
-* Edge *(10.0)*
-* Firefox *(16.0)*
-* Opera *(23.0)*
-* Safari *(9.0)*
-
-##Code
+##  Code
 My modal is taken from this website. [W3school modal](https://www.w3schools.com/howto/howto_css_modals.asp)
 I also inspired certain way to code in some YouTube videos as written in the [Acknowledgements](#Ack)
-## Testing
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
+## Testing
+-   [W3C CSS Validator](https://github.com/LongVN99/Milestone_project_2/blob/f6eea6638c963435fcbd600e0ca30d6db7a48d2b/assets/testing/W3C%20CSS%20Validation%20Memo-flag.png)
+
 
 ### Testing User Stories from User Experience (UX) Section
 -   #### New Player Goals
-- As a new player, I want to know how to play this game.
-- * The Instruction button which allow user to understand how to play the game and the game features. A modal in which all necessaire content about how to play the game will pop up when user clicks on this button.
+    1. As a new player, I want to know how to play this game.
+        * The Instruction button which allow user to understand how to play the game and the game features. A modal in which all necessaire content about how to play the game will pop up when user clicks on this button.
 
-* As a new player, I want to understand how does the score is calculated. (instruction)
+    2. As a new player, I want to understand how does the score is calculated. (instruction)
 
 
-* As a new player, I want to listen to music or turn the music off while playing. (music ON/OFF)
-- 1. A Music button is added to switch music ON/OFF
+    3. As a new player, I want to listen to music or turn the music off while playing. (music ON/OFF)
+        * A Music button is added to switch music ON/OFF
 
-* As a new player, I want to here sound when I click on something such as cards and buttons.(sound ON/OFF)
-- * A Sound button is added to switch music ON/OFF
+    4. As a new player, I want to here sound when I click on something such as cards and buttons.(sound ON/OFF)
+        * A Sound button is added to switch music ON/OFF
 
-* As a new player, I want to know when I win or lose the game. (alert message)
-- * An alert message will pop up when the game over
-1. If  the player win, the alert message will display that player win the game and the score.
-2. If the player lose, the alert message will display that the game is over and ask player to click Re-Start button to play again.
+    5. As a new player, I want to know when I win or lose the game. (alert message)
+        * An alert message will pop up when the game over
+        * If  the player win, the alert message will display that player win the game and the score.
+        * If the player lose, the alert message will display that the game is over and ask player to click Re-Start button to play again.
 
-* As a new player, I want to here sound when I win or when I lose the game.(sound ON/OFF)
-- * Add sound when player win and a different sound when he/she lose the game.
+    6. As a new player, I want to here sound when I win or when I lose the game.(sound ON/OFF)
+        * Add sound when player win and a different sound when he/she lose the game.
 
 -   #### Returning Player Goals.
-* As a returning player, I want to report bug from the game to developer
-- * A report button will be added to send a message to the game developer.
-- * A modal will pop up when user click on this button, which demand user to fill necessary information such as email address.
+    1. As a returning player, I want to report bug from the game to developer
+        * A report button will be added to send a message to the game developer.
+        * A modal will pop up when user click on this button, which demand user to fill necessary information such as email address.
 
-* As a returning player, I want to change different difficult level of the game.
-- * A Game Mode button will be added to change the game difficult, the harder the level the more cards will be added. (The time may be increased)
+    2. As a returning player, I want to change different difficult level of the game.
+        * A Game Mode button will be added to change the game difficult, the harder the level the more cards will be added. (The time may be increased)
 
 -   #### Frequent Player Goals
-* As a frequent player, I want to play the game again when it's over. (button Re-Start)
-- * Player can click on the Re-Start button to play the game again.
+    1. As a frequent player, I want to play the game again when it's over. (button Re-Start)
+        * Player can click on the Re-Start button to play the game again.
 
-* As a frequent player, I want play the game on multiple devices. (responsive)
-- * Each device have its own style which make the game responsive. So player can whether play on a mobile phone or a computer.
-- * Click [here](#demo) to see how does the responsive look like.
+    2. As a frequent player, I want play the game on multiple devices. (responsive)
+        * Each device have its own style which make the game responsive. So player can whether play on a mobile phone or a computer.
+        * Click [here](#demo) to see how does the responsive look like.
 
 ### Further Testing
 * As a user, I want the game look good when playing. So I add 3D effect to make the game better. However this property is only support by later browser version as shown in the [Browser support](#browsersuport).
@@ -193,14 +190,14 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
 ## Credits
-### Content
+- ### Content
 
-All instruction about the game were written by me.
+    All instruction about the game were written by me.
 
-### Media
-All images were taken from google.
+-   ### Media
+    All images were taken from google.
 
 <a name="Ack"></a>
-### Acknowledgements
-* Game sound inspired from a YouTube video (https://www.youtube.com/watch?v=3uuQ3g92oPQ)
-* Flip 3D effect inspired from a YouTube video (https://www.youtube.com/watch?v=ZniVgo8U7ek)
+-   ### Acknowledgements
+    * Game sound inspired from a YouTube video (https://www.youtube.com/watch?v=3uuQ3g92oPQ)
+    * Flip 3D effect inspired from a YouTube video (https://www.youtube.com/watch?v=ZniVgo8U7ek)
