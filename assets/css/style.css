@@ -26,6 +26,12 @@ body {
 }
 
 /*Buttons*/
+.click-here{
+  position: absolute;
+  color: red;
+  visibility: hidden;
+}
+
 .btnStart,
 .btnMusic,
 .btnSound,
@@ -92,10 +98,11 @@ body {
   .btnMusic,
   .btnSound,
   #btnInstruction  {
-    width: 135px;
-    height: 50px;
-    margin-top: 10px;
-    margin-left: 5px;
+    width: 145px;
+    height: 52px;
+    margin-top: 12px;
+    margin-left: 15px;
+    margin-right: 15px;
     font-size: 0.95em;
     border: 2.5px solid #20bf6b !important;
   }
@@ -159,7 +166,7 @@ body {
   .cards-container {
     grid-template-columns: repeat(2, auto);
     grid-gap: 15px 20px;
-    margin: 5px;
+    margin: 10px 5px 10px 5px;
   }
 }
 
@@ -209,6 +216,14 @@ body {
 
 .card-front {
   transform: rotateX(180deg);
+}
+
+.card.matched-cards{
+  border: 2px solid green !important;
+}
+
+.card.unmatched-cards{
+  border: 2px solid red !important;
 }
 
 /*Modal style from w3School*/

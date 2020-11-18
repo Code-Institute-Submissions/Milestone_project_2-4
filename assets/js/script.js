@@ -153,7 +153,9 @@ function gameOver() {
   if (gameSound===true){
     myMusic.gameOver();
   };
-  resetBoard()
+  setTimeout(function(){
+    resetBoard()
+  },1000);
   setTimeout(alert("You Lose"),500);
 }
 
@@ -164,10 +166,12 @@ function victory(){
       myMusic.victory();
     }
     myScore = "\tCongratulations you win the game\t"+"\n\n\tYour score: " + score +"\t";
-    resetBoard();
-    alert(myScore)
-  }
-}
+    setTimeout(function(){
+      resetBoard();
+      alert(myScore)
+    },1200);
+  };
+};
 
 function resetBoard(){
   matchedCase = [];
@@ -190,10 +194,22 @@ function disableClick(){
 function checkMatched() {
   if (firstPick.dataset.flag_name === secondPick.dataset.flag_name) {
     // for matched case we will disable the click method so the user can not click on the same card
+    lockBoard=true
+    setTimeout(function(){ // add green color when it's matched with a certain delay
+      $(firstPick).addClass('matched-cards');
+      $(secondPick).addClass('matched-cards');
+    },250);
+    setTimeout(function(){
+      if (gameSound===true){
+        myMusic.correct();
+      };
+      $(firstPick).removeClass('matched-cards')
+      $(secondPick).removeClass('matched-cards')
+    },650);
+    setTimeout(function(){
+      lockBoard=false;
+    },850);
     disableClick();
-    if (gameSound===true){
-      myMusic.correct();
-    };
     matchedCase.push(firstPick,secondPick);
     addScore();
   } else {
@@ -205,23 +221,38 @@ function checkMatched() {
 /*---Not Mathced Case---*/
 function notMatched(){
   lockBoard = true;
-  setTimeout(function () {
-    //setTimeout method allow user to see the second pick by adding more time before calling the function
-    //without this method the game flip the second pick card very fast that the user aren't able to see his second pick
+  setTimeout(function(){ // add red color when it's not matched with a certain delay
+    $(firstPick).addClass('unmatched-cards');
+    $(secondPick).addClass('unmatched-cards');
+  },500);
+  setTimeout(function(){
     if (gameSound===true){
       myMusic.wrong();
     }
+    //the front card will flip to the back card when we remove the flip class
+    $(firstPick).removeClass('unmatched-cards')
+    $(secondPick).removeClass('unmatched-cards')
+  },1000);
+  setTimeout(function () {
+    //setTimeout method allow user to see the second pick by adding more time before calling the function
+    //without this method the game flip the second pick card very fast that the user aren't able to see his second pick
     $(firstPick).removeClass("flip");
     $(secondPick).removeClass("flip");
-    //the front card will flip to the back card when we remove the flip class
     lockBoard = false;
-  }, 1000);
+  }, 1200);
 };
 
 function game() {
   $(".card").off('click').on("click", function () {
     if (lockBoard === true & gameStart ===false){
-      alert('Please click start');
+      if (gameSound===true){
+        myMusic.clickSound();
+      }
+      alert('Please click Re-Start to play');
+      $('.click-here').css('visibility','visible');
+      setTimeout(function(){
+        $('.click-here').css('visibility','hidden');
+      },3000);
     };
     if (lockBoard === false) {
       if (this === firstPick) {  //user can not click the same card again
