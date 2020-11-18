@@ -84,10 +84,10 @@ body {
   .btnMusic,
   .btnSound,
   #btnInstruction {
-    width: 160px;
-    height: 55px;
-    margin-left: 8px;
-    margin-right: 8px;
+    width: 170px;
+    height: 60px;
+    margin-left: 15px;
+    margin-right: 15px;
     font-size: 1.15em;
     border: 3.5px solid #20bf6b !important;
   }
@@ -97,14 +97,29 @@ body {
   .btnStart,
   .btnMusic,
   .btnSound,
-  #btnInstruction  {
-    width: 152px;
+  #btnInstruction {
+    width: 160px;
+    height: 58px;
+    margin-top: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 0.95em;
+    border: 3px solid #20bf6b !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .btnStart,
+  .btnMusic,
+  .btnSound,
+  #btnInstruction {
+    width: 155px;
     height: 55px;
     margin-top: 12px;
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 15px;
+    margin-right: 15px;
     font-size: 0.95em;
-    border: 2.5px solid #20bf6b !important;
+    border: 3px solid #20bf6b !important;
   }
 }
 
