@@ -95,7 +95,7 @@ function muteMusic() {
       myMusic.clickSound();
     }
   }
-}
+};
 
 function playSound() {
   myMusic= new AudioController
@@ -110,7 +110,7 @@ function playSound() {
       gameSound=soundMuted
     }
   });
-}
+};
 
 /*---Play the background music---*/
 function playMusic(){
@@ -133,7 +133,7 @@ function timeCountDown() {
       gameOver();
     }
   }, 1000);
-}
+};
 
 function addScore(){
   if (timeRemaining >= 30){
@@ -145,8 +145,8 @@ function addScore(){
   } else if (timeRemaining < 10) {
     score +=2;
     $('.score').html(score);
-  }
-}
+  };
+};
 
 function gameOver() {
   clearInterval(countDown);
@@ -164,7 +164,7 @@ function victory(){
     clearInterval(countDown);
     if (gameSound===true){
       myMusic.victory();
-    }
+    };
     myScore = "\tCongratulations you win the game\t"+"\n\n\tYour score: " + score +"\t";
     setTimeout(function(){
       resetBoard();
@@ -184,12 +184,13 @@ function resetBoard(){
   cardFlipped=false;
   lockBoard = true;
   gameStart=false;
-}
+};
 
 function disableClick(){
   $(this.firstPick).off("click");
   $(this.secondPick).off("click");
-}
+};
+
 /*---Matched Case---*/
 function checkMatched() {
   if (firstPick.dataset.flag_name === secondPick.dataset.flag_name) {
@@ -214,9 +215,9 @@ function checkMatched() {
     addScore();
   } else {
     notMatched();
-  }
+  };
   victory();//Check if player win the game
-}
+};
 
 /*---Not Mathced Case---*/
 function notMatched(){
@@ -259,12 +260,11 @@ function game() {
         return;
       } else {
         $(this).addClass("flip");
-      }
-    }
-    else{
+      };
+    } else {
       return;
     };
-
+    
     //check if this is first click
     if (cardFlipped === false) {
       cardFlipped = true;
@@ -302,20 +302,21 @@ $(document).ready(function () {
   playMusic();
   playSound();
   game();
-  alert('Click Re-Start to start the game\n\nClick Music and Sound to turn them on');
-  /*---Button start---*/
-  $(".btnStart").on("click", function () {
-    if (gameStart!=true){
-      gameStart = true;
-      setTimeout(startGame(),500);
-    };
-  });
-  /*button Instruction*/
-  $('#btnInstruction').on('click', function(){
-    if (gameSound===true){
-      myMusic.clickSound();
-    }
-  });
+  setTimeout(alert('Click Re-Start to start the game\n\nClick Music and Sound to turn them on'),1500)
+}
+/*---Button start---*/
+$(".btnStart").on("click", function () {
+  if (gameStart!=true){
+    gameStart = true;
+    setTimeout(startGame(),500);
+  };
+});
+/*button Instruction*/
+$('#btnInstruction').on('click', function(){
+  if (gameSound===true){
+    myMusic.clickSound();
+  }
+});
 });
 
 // Get the modal
