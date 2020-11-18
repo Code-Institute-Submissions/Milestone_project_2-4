@@ -148,17 +148,20 @@ function addScore(){
   }
 }
 
+/*---When the player lose---*/
 function gameOver() {
   clearInterval(countDown);
   if (gameSound===true){
     myMusic.gameOver();
   };
   setTimeout(function(){
+    myMusic.Music()
     resetBoard()
   },1000);
   setTimeout(alert("You Lose \n\n Click Re-Start button to try again"),500);
 }
 
+/*---When the player win---*/
 function victory(){
   if(matchedCase.length===12){
     clearInterval(countDown);
@@ -169,6 +172,7 @@ function victory(){
     setTimeout(function(){
       resetBoard();
       alert(myScore)
+      myMusic.Music()
     },1200);
   };
 };
