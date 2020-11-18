@@ -21,7 +21,6 @@ The game ends once all cards have been correctly matched.
 ## Demo
 You can play this game right away by clicking
 [here](https://longvn99.github.io/Milestone_project_2/)
-
 ![Design](https://github.com/LongVN99/Milestone_project_2/blob/ca2cc0259581b4ebfdb98522c0dcd548c228f63b/assets/mockups/Memo-flag.pdf)
 
 ## User Experience (UX)
