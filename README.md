@@ -22,7 +22,7 @@ The game ends once all cards have been correctly matched.
 You can play this game right away by clicking
 [here](https://longvn99.github.io/Milestone_project_2/)
 
-![Design](https://github.com/LongVN99/Milestone_project_2/blob/5db7ba711bccb45e634c892d1cb12841b3fd987e/assets/mockups/Desktop.png)
+![Design](assets\images\Memo-flag.pdf)
 
 ## User Experience (UX)
 To make the game simple for the user to understand and to give a full information necessaire to know how to play Memo-flag.
