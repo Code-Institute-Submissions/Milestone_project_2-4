@@ -22,7 +22,7 @@ The game ends once all cards have been correctly matched.
 You can play this game right away by clicking
 [here](https://longvn99.github.io/Milestone_project_2/)
 
-![Design](https://github.com/LongVN99/Milestone_project_2/blob/f6eea6638c963435fcbd600e0ca30d6db7a48d2b/assets/mockups/Memo-flag.pdf)
+![Design](https://github.com/LongVN99/Milestone_project_2/blob/ca2cc0259581b4ebfdb98522c0dcd548c228f63b/assets/mockups/Memo-flag.pdf)
 
 ## User Experience (UX)
 To make the game simple for the user to understand and to give a full information necessaire to know how to play Memo-flag.
@@ -77,8 +77,7 @@ My modal is taken from this website. [W3school modal](https://www.w3schools.com/
 I also inspired certain way to code in some YouTube videos as written in the [Acknowledgements](#Ack)
 
 ## Testing
--   [W3C CSS Validator](https://github.com/LongVN99/Milestone_project_2/blob/f6eea6638c963435fcbd600e0ca30d6db7a48d2b/assets/testing/W3C%20CSS%20Validation%20Memo-flag.png)
-
+-   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/LongVN99/Milestone_project_2/blob/ca2cc0259581b4ebfdb98522c0dcd548c228f63b/assets/testing/W3C%20CSS%20Validation%20Memo-flag.png)
 
 ### Testing User Stories from User Experience (UX) Section
 -   #### New Player Goals
