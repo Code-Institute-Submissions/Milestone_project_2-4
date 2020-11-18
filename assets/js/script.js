@@ -156,7 +156,7 @@ function gameOver() {
   setTimeout(function(){
     resetBoard()
   },1000);
-  setTimeout(alert("You Lose"),500);
+  setTimeout(alert("You Lose \n\n Click Re-Start button to try again"),500);
 }
 
 function victory(){
@@ -302,7 +302,7 @@ $(document).ready(function () {
   playMusic();
   playSound();
   game();
-  alert('Click Start to play the game');
+  alert('Click Re-Start to start the game\n\nClick Music and Sound to turn them on');
   /*---Button start---*/
   $(".btnStart").on("click", function () {
     if (gameStart!=true){

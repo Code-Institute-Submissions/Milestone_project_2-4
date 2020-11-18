@@ -255,15 +255,31 @@ body {
 .modal-content {
   font-family: "Comic Sans MS", sans-serif;
   margin:auto;
-  margin-top:15%;
+  margin-top:7.5%;
   width: 75%;
-  font-size: 1.1em;
+  font-size: 1.08em;
   text-align: left;
   background-color: #fefefe;
   -webkit-animation-name: slideIn;
   -webkit-animation-duration: 0.4s;
   animation-name: slideIn;
   animation-duration: 0.4s
+}
+
+@media (max-width: 1200px) {
+  .modal-content {
+    margin-top:0;
+    width: 100%;
+    font-size: 1.05em;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    margin-top:0;
+    width: 100%;
+    font-size: 1em;
+  }
 }
 
 /* The Close Button */
