@@ -196,8 +196,11 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 -   ### Media
     All images were taken from google.
+    Game sounds are taken from [Freesound](https://freesound.org/)
+    Game background music is [Maybe](https://www.youtube.com/watch?v=6Wg_JpVHkio) by Yiruma
 
 <a name="Ack"></a>
 -   ### Acknowledgements
     * Game sound inspired from a YouTube video (https://www.youtube.com/watch?v=3uuQ3g92oPQ)
     * Flip 3D effect inspired from a YouTube video (https://www.youtube.com/watch?v=ZniVgo8U7ek)
+    * Great help from my mentor to find the game bug and to fix it.
