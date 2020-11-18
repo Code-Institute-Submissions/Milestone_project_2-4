@@ -121,6 +121,7 @@ function playMusic(){
   });
 };
 
+/*---Start countdown time/ gameover if time is 0---*/
 function timeCountDown() {
   timeRemaining = totalTime;
   countDown = setInterval(function () {
@@ -135,6 +136,7 @@ function timeCountDown() {
   }, 1000);
 }
 
+/*---Score calculation---*/
 function addScore(){
   if (timeRemaining >= 30){
     score +=10;
@@ -158,7 +160,7 @@ function gameOver() {
     myMusic.Music()
     resetBoard()
   },1000);
-  setTimeout(alert("You Lose \n\n Click Re-Start button to try again"),500);
+  setTimeout(alert("\tYou Lose\t \n\n \tClick Re-Start button to try again\t"),500);
 }
 
 /*---When the player win---*/
@@ -177,11 +179,13 @@ function victory(){
   };
 };
 
+/*---Return the board to default value---*/
 function resetBoard(){
   matchedCase = [];
   timeRemaining = totalTime;
   score = 0;
   $('.score').html(0);
+  $('.time-remaining').html(0);
   $(".flip").removeClass('flip');
   firstPick = null;
   secondPick = null;
@@ -190,10 +194,12 @@ function resetBoard(){
   gameStart=false;
 }
 
+/*---Turn off click functionality---*/
 function disableClick(){
   $(this.firstPick).off("click");
   $(this.secondPick).off("click");
 }
+
 /*---Matched Case---*/
 function checkMatched() {
   if (firstPick.dataset.flag_name === secondPick.dataset.flag_name) {
@@ -246,6 +252,7 @@ function notMatched(){
   }, 1200);
 };
 
+/*---Game logic code---*/
 function game() {
   $(".card").off('click').on("click", function () {
     if (lockBoard === true & gameStart ===false){
@@ -288,6 +295,7 @@ function game() {
   });
 };
 
+/*When user click Start button */
 function startGame(){
   lockBoard = false;
   if (gameStart===true){
@@ -302,6 +310,7 @@ function startGame(){
   };
 };
 
+/*---Initialize when user open the page---*/
 $(document).ready(function () {
   playMusic();
   playSound();
@@ -322,6 +331,7 @@ $(document).ready(function () {
   });
 });
 
+/*These code for modal is taken from w3school */
 // Get the modal
 var modal = document.getElementById("myModal");
 
