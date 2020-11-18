@@ -23,8 +23,8 @@ You can play this game by click
 
 ![Design](https://github.com/LongVN99/Milestone_project_2/blob/5db7ba711bccb45e634c892d1cb12841b3fd987e/assets/mockups/Desktop.png)
 
-## UX
-To make the game simple for the user to understand. To give a full information necessaire to know how to play Memo-flag.
+## User Experience (UX)
+To make the game simple for the user to understand and to give a full information necessaire to know how to play Memo-flag.
 
 - ### User stories
 
@@ -32,26 +32,29 @@ To make the game simple for the user to understand. To give a full information n
 * As a user, I want to understand what does the button use for. (instruction)
 * As a user, I want to listen to music or turn the music off while playing. (music ON/OFF)
 * As a user, I want to here sound when I click on something such as cards and buttons.(sound ON/OFF)
-* As a user, I want to know when I win or lose the game.
+* As a user, I want to know when I win or lose the game. (alert message)
 * As a user, I want to here sound when I win or when I lose the game.(sound ON/OFF)
-* As a user, I want to play the game again when it's over. (button PlayAgain)
-* As a user, I want to report bugs. (report button)
+* As a user, I want to play the game again when it's over. (button Re-Start)
 * As a user, I want play the game on multiple devices. (responsive)
 * As a user, when my screen is small I want to find quick and preferable on my phone. (responsive)
 
 - ### Design
-* Color use are shade of green and blue
-* Font-family is "Comic Sans MS", sans-serif
-* Grid to position cards
+-   #### Colour Scheme
+-   Main color used are shade of green, yellow and blue
+-   #### Typography
+-   I use Comic Sans MS with Sans Serif for all contents in this game.
 
 ## Features
 
 * Allow user to play the game on multiple device
-* Start/Restart allow player to start the game (time starts coundown) or to retry when the game is in process
-* Allow user to understand how to play (Instruction button) and how to obtain the higher score
+* Re-Start allow player to start the game (time starts coundown) or to retry when the game is over
+* Allow user to understand how to play the game(Instruction button) and how does the score is calculated
 * Time - A timer displaying the number of seconds that have elapsed. Run out of time mean player lose the game
 * Score - score add according to time, the faster the player finds matched cards the more score player obtains
-* User can report a problem to the game developper (report icon)
+
+- ### Future features
+* Report button - Allow player to report bug from the game to developper
+* Game mode - Allow player to choose different difficult level of the game (add more cards)
 
 <a name="browsersuport"></a>
 ## Browser support
@@ -65,8 +68,11 @@ To make the game simple for the user to understand. To give a full information n
 * Safari *(9.0)*
 
 ##Code
-
+My modal is taken from this website. [W3school modal](https://www.w3schools.com/howto/howto_css_modals.asp)
+I also inspired certain way to code in some YouTube videos as written in the [Acknowledgements](#Ack)
 ## Testing
+
+### Testing User Stories from User Experience (UX) Section
 All buttons function correctly. Start button to begin the game, if player didn't click this button an alert message will show up. Music and sound button able to switch ON/OFF, by default the music and sound is OFF. User is able to hear sound and music when it switches to ON. As a new user, I want to understand what does the button do and how to play the game. So, I create an Instruction button which allow user to understand how to play the game and the game features. A modal in which all necessaire content about the game will pop up when user clicks on this button. Here user is able to choose the content which he/she wants to learn more. These buttons have its own style to increase the look and feel of users.
 
 As a user, I want the game look good when playing. So I add 3D effect to make the game better. However this property is only support by later browser version as shown in the [Browser support](#browsersuport).
@@ -143,9 +149,9 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 All instruction about the game were written by me.
 
 ### Media
-
 All images were taken from google.
 
+<a name="Ack"></a>
 ### Acknowledgements
 * Game sound inspired from a YouTube video (https://www.youtube.com/watch?v=3uuQ3g92oPQ)
 * Flip 3D effect inspired from a YouTube video (https://www.youtube.com/watch?v=ZniVgo8U7ek)
