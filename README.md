@@ -192,12 +192,12 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 ## Credits
 - ### Content
 
-    All instruction about the game were written by me.
+    * All instruction about the game were written by me.
 
 -   ### Media
-    All images were taken from google.
-    Game sounds are taken from [Freesound](https://freesound.org/)
-    Game background music is [Maybe](https://www.youtube.com/watch?v=6Wg_JpVHkio) by Yiruma
+    * All images were taken from google.
+    * Game sounds are taken from [Freesound](https://freesound.org/)
+    * Game background music is [Maybe](https://www.youtube.com/watch?v=6Wg_JpVHkio) by Yiruma
 
 <a name="Ack"></a>
 -   ### Acknowledgements
