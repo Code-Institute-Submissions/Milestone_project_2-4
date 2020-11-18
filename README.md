@@ -17,8 +17,9 @@ The game board consists of 12 cards arranged randomly in a grid. The deck is mad
 
 The game ends once all cards have been correctly matched.
 
+<a name="demo"></a>
 ## Demo
-You can play this game by click
+You can play this game right away by clicking
 [here](https://longvn99.github.io/Milestone_project_2/)
 
 ![Design](https://github.com/LongVN99/Milestone_project_2/blob/5db7ba711bccb45e634c892d1cb12841b3fd987e/assets/mockups/Desktop.png)
@@ -28,15 +29,21 @@ To make the game simple for the user to understand and to give a full informatio
 
 - ### User stories
 
-* As a user, I want to know how to play this game. (instruction)
-* As a user, I want to understand what does the button use for. (instruction)
-* As a user, I want to listen to music or turn the music off while playing. (music ON/OFF)
-* As a user, I want to here sound when I click on something such as cards and buttons.(sound ON/OFF)
-* As a user, I want to know when I win or lose the game. (alert message)
-* As a user, I want to here sound when I win or when I lose the game.(sound ON/OFF)
-* As a user, I want to play the game again when it's over. (button Re-Start)
-* As a user, I want play the game on multiple devices. (responsive)
-* As a user, when my screen is small I want to find quick and preferable on my phone. (responsive)
+-   #### New Player Goals
+* As a new player, I want to know how to play this game. (instruction)
+* As a new player, I want to understand how does the score is calculated. (instruction)
+* As a new player, I want to listen to music or turn the music off while playing. (music ON/OFF)
+* As a new player, I want to here sound when I click on something such as cards and buttons.(sound ON/OFF)
+* As a new player, I want to know when I win or lose the game. (alert message)
+* As a new player, I want to here sound when I win or when I lose the game.(sound ON/OFF)
+
+-   #### Returning Player Goals.
+* As a returning player, I want to report bug from the game to developer.
+* As a returning player, I want to change different difficult level of the game.
+
+-   #### Frequent Player Goals
+* As a frequent player, I want to play the game again when it's over. (button Re-Start)
+* As a frequent player, I want play the game on multiple devices. (responsive)
 
 - ### Design
 -   #### Colour Scheme
@@ -71,18 +78,60 @@ To make the game simple for the user to understand and to give a full informatio
 My modal is taken from this website. [W3school modal](https://www.w3schools.com/howto/howto_css_modals.asp)
 I also inspired certain way to code in some YouTube videos as written in the [Acknowledgements](#Ack)
 ## Testing
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+
+-   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
 
 ### Testing User Stories from User Experience (UX) Section
-All buttons function correctly. Start button to begin the game, if player didn't click this button an alert message will show up. Music and sound button able to switch ON/OFF, by default the music and sound is OFF. User is able to hear sound and music when it switches to ON. As a new user, I want to understand what does the button do and how to play the game. So, I create an Instruction button which allow user to understand how to play the game and the game features. A modal in which all necessaire content about the game will pop up when user clicks on this button. Here user is able to choose the content which he/she wants to learn more. These buttons have its own style to increase the look and feel of users.
+-   #### New Player Goals
+- As a new player, I want to know how to play this game.
+- * The Instruction button which allow user to understand how to play the game and the game features. A modal in which all necessaire content about how to play the game will pop up when user clicks on this button.
 
-As a user, I want the game look good when playing. So I add 3D effect to make the game better. However this property is only support by later browser version as shown in the [Browser support](#browsersuport).
-As a user, I want game functions correctly without bug. To fix the bug when user click on the same card multiple time, I create a condition which return when it's the same card (define as firstPick).
-In matched case, a bug will occur if user click on the flipped cards. Here, I disable the click method on these cards to prevent bug by using Jquery .off method (ex: $(firstPick).off("click")).
+* As a new player, I want to understand how does the score is calculated. (instruction)
 
+
+* As a new player, I want to listen to music or turn the music off while playing. (music ON/OFF)
+- 1. A Music button is added to switch music ON/OFF
+
+* As a new player, I want to here sound when I click on something such as cards and buttons.(sound ON/OFF)
+- * A Sound button is added to switch music ON/OFF
+
+* As a new player, I want to know when I win or lose the game. (alert message)
+- * An alert message will pop up when the game over
+1. If  the player win, the alert message will display that player win the game and the score.
+2. If the player lose, the alert message will display that the game is over and ask player to click Re-Start button to play again.
+
+* As a new player, I want to here sound when I win or when I lose the game.(sound ON/OFF)
+- * Add sound when player win and a different sound when he/she lose the game.
+
+-   #### Returning Player Goals.
+* As a returning player, I want to report bug from the game to developer
+- * A report button will be added to send a message to the game developer.
+- * A modal will pop up when user click on this button, which demand user to fill necessary information such as email address.
+
+* As a returning player, I want to change different difficult level of the game.
+- * A Game Mode button will be added to change the game difficult, the harder the level the more cards will be added. (The time may be increased)
+
+-   #### Frequent Player Goals
+* As a frequent player, I want to play the game again when it's over. (button Re-Start)
+- * Player can click on the Re-Start button to play the game again.
+
+* As a frequent player, I want play the game on multiple devices. (responsive)
+- * Each device have its own style which make the game responsive. So player can whether play on a mobile phone or a computer.
+- * Click [here](#demo) to see how does the responsive look like.
+
+### Further Testing
+* As a user, I want the game look good when playing. So I add 3D effect to make the game better. However this property is only support by later browser version as shown in the [Browser support](#browsersuport).
+* Every button has its own style to increase the look and feel of user.
+* Start button to begin the game, if player didn't click this button an alert message will show up. In case the player doesn't pay attention where the start button is, this '!!' in red will be added next to the start button.
+* As a user, I want game functions correctly without bug. To fix the bug when user click on the same card multiple time, I create a condition which return when it's the same card (define as firstPick).
+In matched case, a bug will occur if user click on the flipped cards. Here, I disable the click method on these cards to prevent bug by using Jquery .off method.
+* The start button is disable once the game begin to prevent bug
 
 ## Strategy
 
-The goal in the design was to make it as easy as possible for non experience user to be able to play the game.
+The goal in the design was to make it as easy as possible for non experience user to be able to play the game and most importantly is to enjoy playing this game.
 
 ## Technologies
 
